@@ -77,7 +77,7 @@ function onMidi(status, data1, data2)
 {
     if (isChannelController(status))
     {
-        printMidi(status, data1, data2)
+        // printMidi(status, data1, data2)
 
         switch (data1) {
             case CC.LOOP:
