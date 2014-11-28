@@ -1,6 +1,6 @@
 loadAPI(1);
 
-host.defineController("M-Audio", "Axiom 25", "1.0", "69cb6728-002b-4546-b9a9-6ffb19d58281");
+host.defineController("M-Audio", "Axiom 25", "1.0", "436eb006-523d-4fd4-adf1-431af7803e53");
 host.defineMidiPorts(1, 0);
 host.addDeviceNameBasedDiscoveryPair(["USB Axiom 25 Port 1"], ["USB Axiom 25 Port 1"]);
 
