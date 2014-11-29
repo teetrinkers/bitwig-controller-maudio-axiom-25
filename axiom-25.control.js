@@ -80,7 +80,7 @@ function onMidi(status, data1, data2)
 
         switch (data1) {
             case CC.LOOP:
-                transport.toggleLoop();
+                cursorTrack.getPrimaryDevice().isWindowOpen().toggle();
                 break;
             case CC.REW:
                 cursorTrack.selectPrevious();
