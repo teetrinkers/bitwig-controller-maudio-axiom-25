@@ -41,7 +41,6 @@ function init()
     cursorTrack = host.createCursorTrack(2, 0);
 
     // Init device macros.
-    cursorTrack = host.createCursorTrack(3, 0);
     primaryDevice = cursorTrack.getPrimaryDevice();
     for (var i = 0; i < DEVICE_MACRO_COUNT; i++)
     {
