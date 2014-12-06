@@ -3,8 +3,9 @@ loadAPI(1);
 load("rotaries.js");
 
 host.defineController("M-Audio", "Axiom 25", "1.0", "436eb006-523d-4fd4-adf1-431af7803e53");
-host.defineMidiPorts(1, 0);
+host.defineMidiPorts(1, 1);
 host.addDeviceNameBasedDiscoveryPair(["USB Axiom 25 Port 1"], ["USB Axiom 25 Port 1"]);
+host.defineSysexIdentityReply("F0 7E 7F 06 02 00 20 08 63 0E 18 03 20 31 30 30 F7");
 
 var CC_MIN = 1;
 var CC_MAX = 119;
@@ -34,6 +35,11 @@ var PADS = {
 
 function init() {
     host.getMidiInPort(0).setMidiCallback(onMidi);
+
+    // Print Sysex ID response.
+    // host.getMidiInPort(0).setSysexCallback(function(data) {println(data);});
+    // sendSysex("F0 7E 7F 06 01 F7")
+
     noteInput = host.getMidiInPort(0).createNoteInput("Axiom 25",
         "80????", "90????", "B001??", "B002??", "B00B??", "B040??", "C0????", "D0????", "E0????");
     noteInput.setShouldConsumeEvents(false);
@@ -118,6 +124,5 @@ function onMidi(status, data1, data2) {
     }
 }
 
-function exit()
-{
+function exit() {
 }
