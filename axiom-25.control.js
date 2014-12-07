@@ -37,8 +37,9 @@ function init() {
     host.getMidiInPort(0).setMidiCallback(onMidi);
 
     // Print Sysex ID response.
-    // host.getMidiInPort(0).setSysexCallback(function(data) {println(data);});
-    // sendSysex("F0 7E 7F 06 01 F7")
+    host.getMidiInPort(0).setSysexCallback(function(data) {println(data);});
+    println("Sysex ID:");
+    sendSysex("F0 7E 7F 06 01 F7")
 
     noteInput = host.getMidiInPort(0).createNoteInput("Axiom 25",
         "80????", "90????", "B001??", "B002??", "B00B??", "B040??", "C0????", "D0????", "E0????");
@@ -66,7 +67,7 @@ function isUserControlCC(cc) {
 }
 
 function onMidi(status, data1, data2) {
-    printMidi(status, data1, data2)
+    // printMidi(status, data1, data2)
 
     if (isChannelController(status)) {
 
